@@ -1,0 +1,19 @@
+<header>
+  <nav class="primary">
+    <section>
+      {{#link-to 'index'}} Home {{/link-to}}
+    </section>
+  </nav>
+</header>
+
+<main>
+  <section class="g-4">
+    {{#each model.links as |tile|}}
+      {{#each tile.images as |image|}}
+        {{#if (eq image.type 10) }}
+          <img src="{{image.url}}" alt="" width="250px" height="auto">
+        {{/if}}
+      {{/each}}
+    {{/each}}
+  </section>
+</main>
