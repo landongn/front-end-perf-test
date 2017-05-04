@@ -5,9 +5,18 @@
     <button class="down">&darr;</button>
     <button class="left">&larr;</button>
   </section>
+
+  {{#each model as |row index|}}
   <section class="g-4">
-    {{#each model as |tile index|}}
-      {{grid-item game=tile index=index detailPageTransition=(action 'detailPageTransition')}}
-    {{/each}}
+    <section class="row">
+      <div class="inner">
+      {{#each row as |tile row_index|}}
+        {{grid-item game=tile row=index index=row_index
+          detailPageTransition=(action 'detailPageTransition')}}
+      {{/each}}
+      </div>
+    </section>
   </section>
+  {{/each}}
+
 </main>

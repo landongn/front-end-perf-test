@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   actions: {
     detailPageTransition(params) {
       this.get('store').recordForDetails(params.game);
-      this.transitionToRoute('details.index', {id: params.game.id});
+      this.transitionToRoute('details', {id: params.game.id});
     }
   }
 })

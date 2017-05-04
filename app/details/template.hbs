@@ -1,1 +1,23 @@
-{{outlet}}
+<section class="container details">
+
+  <img class="backgroundImage" src="{{backgroundImage}}" alt="">
+  <img src="{{heroImage}}" class="heroImage" alt="">
+
+    <section class="metadata">
+      <h1>{{model.name}} - {{model.game_contentType}}</h1>
+    </section>
+
+    <section class="description">
+      <p>{{{model.long_desc}}}</p>
+    </section>
+
+    <section class="gallery">
+      {{#each model.promomedia as |promo|}}
+        {{#each promo.materials as |item|}}
+          {{#each item.urls as |image| }}
+            <img src="{{image.url}}" height="100%" width="180px" alt="">
+          {{/each}}
+        {{/each}}
+      {{/each}}
+  </section>
+</section>

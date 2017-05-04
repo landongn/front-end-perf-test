@@ -1,6 +1,10 @@
 & {
+  &:hover {
+    border: 1px solid white;
+  }
   position:relative;
   top: 500px;
+  display: inline-block;
   opacity: 0;
   transition: opacity 250ms ease-out,
                 top 250ms ease-out;
