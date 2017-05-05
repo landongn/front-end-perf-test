@@ -6,11 +6,11 @@
     <button class="left">&larr;</button>
   </section>
 
-  {{#each model as |row index|}}
+  {{#each model as |category index|}}
   <section class="g-4">
-    <section class="row">
+    <section class="category">
       <div class="inner">
-      {{#each row as |tile row_index|}}
+      {{#each category as |tile row_index|}}
         {{grid-item game=tile row=index index=row_index
           detailPageTransition=(action 'detailPageTransition')}}
       {{/each}}
