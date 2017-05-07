@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     },
     setupController(ctrl, model) {
         ctrl.set('model', model);
+		var selectedProduct = this.get('store').getRecord();
 		return this.get('apiCache').getGameDetails(model.game_id || model.id).then(function(d) {
 			return ctrl.set('model', d);
 		});

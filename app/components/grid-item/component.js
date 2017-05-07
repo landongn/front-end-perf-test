@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     var self = this;
     setTimeout(function () {
       self.set('transitionIn', true);
-    }, (this.get('index') * 13 * Math.random()));
+    });
   },
   transitionIn: false,
   click() {
