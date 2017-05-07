@@ -1,0 +1,15 @@
+{{yield}}
+    <section class="description">
+      <p>{{{long_desc}}}</p>
+    </section>
+
+    <section class="gallery">
+	{{promedia}}ste
+      {{#each promomedia as |promo|}}
+        {{#each promo.materials as |item|}}
+          {{#each item.urls as |image| }}
+            <img src="{{image.url}}" height="100%" width="180px" alt="">
+          {{/each}}
+        {{/each}}
+      {{/each}}
+  </section>
