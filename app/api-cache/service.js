@@ -13,6 +13,27 @@ export default Ember.Service.extend({
     clear: function(key) {
         cache[key] = null;
     },
+    getGameDetails: function(id) {
+        var self = this;
+        if (!self.cache[id]) {
+            return new Promise(function(resolve, reject) {
+                self.retrieveGameDetailsFromApi(id).then(function(data) {
+                    self.cache[id] = data;
+                    resolve(self.cache[id]);
+                });
+            });
+        } else {
+            return new Promise(function(resolve, reject) {
+                resolve(self.cache[id]);
+            });
+        }
+    },
+    retrieveGameDetailsFromApi: function(id) {
+        return new Ember.RSVP.Promise((resolve) => {
+            Ember.$.getJSON(`https://psnow.playstation.com/store/api/pcnow/00_09_000/container/US/en/19/${id}`)
+                .then(d => resolve(d));
+        });
+    },
     getGameList: function() {
         var self = this;
         if (!self.cache['gameList']) {
