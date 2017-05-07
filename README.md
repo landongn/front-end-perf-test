@@ -1,6 +1,6 @@
 # interview
 
-Contained in this project is a collection of poisons.  Over the course of the interview, we ask you to detect and fix as many of these toxic implementations as possible.
+Contained in this project are a collection of poisons.  Over the course of the interview, we ask you to detect and fix as many of these toxic implementations as possible.
 
 Specifically:
 
@@ -18,40 +18,50 @@ The user experience is pretty straightforward; there's a catalog of games for a 
 
 The application is separated into a few concerns:
 
-- a 'store' service that maintains application state, and a mechanism for updating it.
+- a 'store' service that maintains application state, and a mechanism for updating it. 
+  - this should be the most stable implementation
+  - you ask the store to perform operations and maintain state, follow the pattern present for any additions
+  - the store is injectable in your components, controllers, and routes via `Ember.inject.service('state')`
 
 - a grid of images for the user to choose from
+  - this contains various performance issues, layout issues, and CSS issues
 
 - a details page of a users selection
+  - this contains things like the synopsis of the game, box art, and a background image / hero image
+  - this is missing a lot of the layout
+  - this contains severe visual issues
 
-- a series of components to implement the individual features
+- a collection of components to implement the individual features
+  - there are components to render the grid of games on the index page [see below]
+  - there are components necessary on the detail page, however none yet exist.
 
-- a series of animation interactions for the user
+- a collection of animation interactions for the user
+  - these are implemented, however, we have noticed some framerate issues...
+  - the detail page does not have any implemented animations
 
 - a collection of SCSS stylesheets implementing the styles and some animations.
 
 - A missing implementation for infinitely scrolling lists for the game selection. 
-  - for this, some details:
-    - if you imagine what netflix looks like: You have a 2 dimensional grid of information, broken into categories. 
-    - You can infinitely loop a particular category on the x axis
-    - you can infinitely loop through the categories on the y axis
-    - bonus points if this is keyboard friendly
-    - completely optional / bonus 
+  - if you imagine what netflix looks like: You have a 2 dimensional grid of information, broken into categories. 
+  - You can infinitely loop a particular category on the x axis
+  - you can infinitely loop through the categories on the y axis
+  - bonus points if this is keyboard friendly
+  - completely optional / bonus 
 
 - a missing layout for the detail page
   - the detail page has overlapping text, no formatting, and needs a layout. 
   - think of this as a [css zen garden](http://www.csszengarden.com/)
    challenge.
 
-an Ideal PR would be to not only complete as much work as you are able, but to focus in areas you are most comfortable in working rapidly. Put another way, if you feel the most comfortable fixing visual problems, tackle those first. Want to improve the framerate? Go for it.  Try to tackle the work you can most ably handle completing within the time limit. 
+Each of the above bullets could easily be filed into issues in the forked copy of your repo and closed via `closes #[PR number here]` in commit messages.
 
 Be sure to:
 
-- Collect information about things you notice
-- assess the priority of those
-- implement / refactor those solutions, based on your data.
+- Collect information about things you notice.  Screenshots of the profiler, notes in `// #TODO:` comments, etc.
+- assess the priority of those.  Again, the recommendation is to utilize github's built in issue and PR system, though not required.
+- implement / refactor those solutions, based on the above.
 
-To be absolutely clear:  This project contains several potential areas for you to focus on. Most of them will take up a majority of your time as individual tasks. That's fine.  Try to get done as much as you can.
+To be absolutely clear:  This project contains several potential areas for you to focus on. Most of them will take up a majority of your time as individual tasks. That's fine.  Try to get done as much as you can. This isn't strictly a code challenge. 
 
 Try to keep it close to 3 hours.  The clock starts when you fork the repo. 
 
